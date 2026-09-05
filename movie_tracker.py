@@ -2,6 +2,19 @@
 
 import tkinter as tk
 
+
+def writeFormContentToFile(formTextboxes):
+    with open("movies.txt", "a", encoding="utf-8") as movies_file:     # append-mód
+        movies_file.write("Title: " + formTextboxes["title"].get() + "\n")  # itt fogom feliratozni
+        movies_file.write("Release date: " + formTextboxes["release"].get() + "\n")
+        movies_file.write("Watched date: " + formTextboxes["watched"].get() + "\n")
+        movies_file.write("Seen: " + str(formTextboxes["seen"].get()) + "\n \n")  # boolean érték, ezért str-be kell konvertálni # kell-e a 2.\n az adatelemzésnél nem lesz-e akadály
+
+
+formTextboxes = {}
+
+
+
 root = tk.Tk()   # root = tk.Tk()
 root.title("Movie tracker")
 root.geometry("400x400")
@@ -26,6 +39,7 @@ title_label.pack(pady=10)
 
 title_text_box = tk.Entry(root)
 title_text_box.pack()
+formTextboxes["title"] = title_text_box
 
 
 releaseYear_label = tk.Label(
@@ -37,6 +51,7 @@ releaseYear_label.pack(pady=10)
 
 releaseYear_text_box = tk.Entry(root)
 releaseYear_text_box.pack()
+formTextboxes["release"] = releaseYear_text_box
 
 
 watchedDate_label = tk.Label(
@@ -48,6 +63,7 @@ watchedDate_label.pack(pady=10)
 
 watchedDate_label_text_box = tk.Entry(root)
 watchedDate_label_text_box.pack()
+formTextboxes["watched"] = watchedDate_label_text_box
 
 
 seen = tk.BooleanVar()
@@ -60,6 +76,7 @@ seen_checkbox = tk.Checkbutton(
 seen_checkbox.pack()
 
 seen_ceckbox_text_box = tk.BooleanVar()
+formTextboxes["seen"] = seen
 
 
 slider = tk.Scale(
