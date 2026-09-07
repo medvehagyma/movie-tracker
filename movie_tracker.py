@@ -4,11 +4,11 @@ import tkinter as tk
 
 
 def writeFormContentToFile(formTextboxes):
-    with open("movies.txt", "a", encoding="utf-8") as movies_file:     # append-mód
-        movies_file.write("Title: " + formTextboxes["title"].get() + "\n")  # itt fogom feliratozni
+    with open("movies.txt", "a", encoding="utf-8") as movies_file:     # append-mode
+        movies_file.write("Title: " + formTextboxes["title"].get() + "\n")
         movies_file.write("Release date: " + formTextboxes["release"].get() + "\n")
         movies_file.write("Watched date: " + formTextboxes["watched"].get() + "\n")
-        movies_file.write("Seen: " + str(formTextboxes["seen"].get()) + "\n \n")  # boolean érték, ezért str-be kell konvertálni # kell-e a 2.\n az adatelemzésnél nem lesz-e akadály
+        movies_file.write("Seen: " + str(formTextboxes["seen"].get()) + "\n \n")  # boolean value, converted to str for writing to file
 
 
 formTextboxes = {}
