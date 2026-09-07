@@ -75,7 +75,6 @@ seen_checkbox = tk.Checkbutton(
 )
 seen_checkbox.pack()
 
-seen_ceckbox_text_box = tk.BooleanVar()
 formTextboxes["seen"] = seen
 
 
